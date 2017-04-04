@@ -10,3 +10,7 @@
 .produce-name {
   text-align: left;
 }
+
+.count-mentions {
+  float:right;
+}
