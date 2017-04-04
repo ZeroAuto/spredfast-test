@@ -1,5 +1,5 @@
 (function($) {
-  // compare function for
+  // compare function for sorting array in descending order
   function compare(a,b) {
   if (a.count < b.count)
     return 1;
@@ -39,5 +39,7 @@
   }
 
   executeCall();
+
+  // execute the api call every 15 seconds
   window.setInterval(executeCall, 15000);
 }(jQuery));
