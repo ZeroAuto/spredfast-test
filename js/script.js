@@ -29,7 +29,7 @@
 
       resultsArray.sort(compare);
 
-      // I could have probably done this better with a loop but I was pressed for time
+      // jQuery each loop makes things easier
       $('.produce-name').each(function(i, obj){
         $(obj).html(resultsArray[i].name + " <span class='count-mentions'>" + resultsArray[i].count + " Mentions</span>");
       })
