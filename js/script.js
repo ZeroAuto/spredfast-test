@@ -1,21 +1,21 @@
 (function($) {
   // compare function for sorting array in descending order
   function compare(a,b) {
-  if (a.count < b.count)
-    return 1;
-  if (a.count > b.count)
-    return -1;
-  return 0;
-}
+    if (a.count < b.count)
+      return 1;
+    if (a.count > b.count)
+      return -1;
+    return 0;
+  }
 
-  var myPoll = new window.spredfast.Poller();
+  const myPoll = new window.spredfast.Poller();
 
   function executeCall() {
-    var resultsArray = [];
+    const resultsArray = [];
 
     myPoll.poll({type:'fruits', }, function(results) {
 
-      for (var i = 0; i < results.length; i ++) {
+      for (let i = 0; i < results.length; i ++) {
         resultsArray.push(results[i]);
       }
 
@@ -23,23 +23,22 @@
 
     myPoll.poll({}, function(results) {
 
-      for (var i = 0; i < results.length; i ++) {
+      for (let i = 0; i < results.length; i ++) {
         resultsArray.push(results[i]);
       }
 
       resultsArray.sort(compare);
 
       // I could have probably done this better with a loop but I was pressed for time
-      $('.first').html(resultsArray[0].name + " <span class='count-mentions'>" + resultsArray[0].count + " Mentions</span>");
-      $('.second').html(resultsArray[1].name + " <span class='count-mentions'>" + resultsArray[1].count + " Mentions</span>");
-      $('.third').html(resultsArray[2].name + " <span class='count-mentions'>" + resultsArray[2].count + " Mentions</span>");
-      $('.fourth').html(resultsArray[3].name + " <span class='count-mentions'>" + resultsArray[3].count + " Mentions</span>");
-      $('.fifth').html(resultsArray[4].name + " <span class='count-mentions'>" + resultsArray[4].count + " Mentions</span>");
+      $('.produce-name').each(function(i, obj){
+        $(obj).html(resultsArray[i].name + " <span class='count-mentions'>" + resultsArray[i].count + " Mentions</span>");
+      })
     });
   }
 
+  // initial api call to populate elements in the markup
   executeCall();
 
   // execute the api call every 15 seconds
-  window.setInterval(executeCall, 15000);
+  window.setInterval(executeCall, 5000);
 }(jQuery));
