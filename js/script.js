@@ -13,7 +13,7 @@
   function executeCall() {
     const resultsArray = [];
 
-    myPoll.poll({type:'fruits', }, function(results) {
+    myPoll.poll({type:'fruits', }, (results) => {
 
       for (let i = 0; i < results.length; i ++) {
         resultsArray.push(results[i]);
@@ -21,7 +21,7 @@
 
     });
 
-    myPoll.poll({}, function(results) {
+    myPoll.poll({}, (results) => {
 
       for (let i = 0; i < results.length; i ++) {
         resultsArray.push(results[i]);
@@ -32,7 +32,7 @@
       // jQuery each loop makes things easier
       $('.produce-name').each(function(i, obj){
         $(obj).html(resultsArray[i].name + " <span class='count-mentions'>" + resultsArray[i].count + " Mentions</span>");
-      })
+      });
     });
   }
 
