@@ -40,5 +40,5 @@
   executeCall();
 
   // execute the api call every 15 seconds
-  window.setInterval(executeCall, 5000);
+  window.setInterval(executeCall, 15000);
 }(jQuery));
