@@ -31,7 +31,7 @@
 
       // jQuery each loop makes things easier
       $('.produce-name').each((i, obj) => {
-        $(obj).html(resultsArray[i].name + " <span class='count-mentions'>" + resultsArray[i].count + " Mentions</span>");
+        $(obj).html(`${resultsArray[i].name} <span class='count-mentions'> ${resultsArray[i].count} Mentions</span>`)
       });
     });
   }
